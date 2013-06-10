@@ -2,9 +2,9 @@
 
 = csrf_meta_tag
 
-- key = Rails.application.config.session_options[:key]
+- key = ::Rails.application.config.session_options[:key]
 
-%meta{ name: 'key-param', content: Rails.application.config.session_options[:key] }
+%meta{ name: 'key-param', content: ::Rails.application.config.session_options[:key] }
 %meta{ name: 'key-token', content: cookies[key] }
 
 %script{ type: 'text/javascript' }

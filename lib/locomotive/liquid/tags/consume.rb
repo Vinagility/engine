@@ -72,7 +72,7 @@ module Locomotive
         end
 
         def render_all_and_cache_it(context)
-          Rails.cache.fetch(@cache_key, expires_in: @expires_in, force: @expires_in == 0) do
+          ::Rails.cache.fetch(@cache_key, expires_in: @expires_in, force: @expires_in == 0) do
             self.render_all_without_cache(context)
           end
         end

@@ -1,5 +1,5 @@
 Given /^the engine is mounted on a non standard path$/ do
-  Rails.application.routes.draw do
+  ::Rails.application.routes.draw do
     mount Locomotive::Engine => '/my-custom-path', as: 'locomotive'
     match '/foo' => 'foo#index', as: 'foo'
   end
@@ -18,5 +18,5 @@ Then /^I should be able to access the backend$/ do
   page.should have_content 'Page was successfully updated'
 
   # Reset the routes back to normal once we are done
-  Rails.application.reload_routes!
+  ::Rails.application.reload_routes!
 end

@@ -54,7 +54,7 @@ module Locomotive
     # ::Devise.mailer_sender = mail_address =~ /.+@.+/ ? mail_address : "#{mail_address}@#{Locomotive.config.domain}"
 
     # cookies stored in mongodb (mongoid_store)
-    Rails.application.config.session_store :mongoid_store, {
+    ::Rails.application.config.session_store :mongoid_store, {
       key:    self.config.cookie_key,
       domain: :all
     }
@@ -136,13 +136,13 @@ module Locomotive
   end
 
   def self.mounted_on
-    Rails.application.routes.named_routes[:locomotive].path.spec.to_s
+    ::Rails.application.routes.named_routes[:locomotive].path.spec.to_s
   end
 
   protected
 
   def self.app_middleware
-    Rails.application.middleware
+    ::Rails.application.middleware
   end
 
 end
