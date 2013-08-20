@@ -57,7 +57,7 @@ module Locomotive
 
         class ShortText < Text
           def initialize(tag_name, markup, tokens, context)
-            Rails.logger.warn %(The "editable_<short|long>_text" liquid tags are deprecated. Use "editable_text" instead.)
+            ::Rails.logger.warn %(The "editable_<short|long>_text" liquid tags are deprecated. Use "editable_text" instead.)
             super
           end
           def default_element_attributes
