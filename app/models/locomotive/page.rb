@@ -117,7 +117,8 @@ module Locomotive
       if self.index? || self.not_found?
         self.fullpath = self.slug
       else
-        slugs = self.ancestors_and_self.map(&:slug)
+        # Sort page ancestors after depth to ensure correct fullpath
+        slugs = self.ancestors_and_self.sort{|n,m| n.depth <=> m.depth}.map(&:slug)
         slugs.shift unless slugs.size == 1
         self.fullpath = File.join slugs.compact
       end
